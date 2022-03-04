@@ -1,0 +1,11 @@
+             | extraLargeArray | tinyArray | smallArray | mediumArray | largerArray
+             |---------------------------------------------------------------------
+doubleAppend |      3.92 ms    |  96.07 μs | 104.77 μs  |  156.45 μs  |  620.20 μs
+             |---------------------------------------------------------------------
+doubleInsert |    975.92 ms    |  38.51 μs |  50.70 μs  |  262.04 μs  |    6.89 ms
+
+
+With smaller arrays the doubleInsert function is better but doubleAppend scales much better.
+This is very notable in the jump from smallArray to mediumArray. doubleAppend was only increased by
+50% while the time it took to execute doubleInsert was over 500% longer than it was with smallArray.
+Noting these large jumps in runtime tell us that doubleAppend scales much better.
